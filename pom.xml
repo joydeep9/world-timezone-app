@@ -34,12 +34,13 @@
 				    <cloudHubDeployment>
 				      <uri>https://anypoint.mulesoft.com</uri>
 				      <muleVersion>4.3.0</muleVersion>
-				      <username>${anypoint.username}</username>
-				      <password>${anypoint.password}</password>
+				      <username>jdp</username>
+				      <password>Jnj@2jnj</password>
 				      <applicationName>worldtimezone-app-jdp</applicationName>
-				      <environment>${anypoint.environment}</environment>
+				      <environment>Sandbox</environment>
+				      <workers>1</workers>
+				      <workerType>Micro</workerType>
 				    </cloudHubDeployment>
-				
 				</configuration>
 			</plugin>
 		</plugins>
