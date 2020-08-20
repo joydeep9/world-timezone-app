@@ -39,7 +39,8 @@
 				      <applicationName>worldtimezone-app-jdp</applicationName>
 				      <environment>Sandbox</environment>
 				      <workers>1</workers>
-				      <workerType>Micro</workerType>
+				      <workerType>MICRO</workerType>
+				      <objectStoreV2>true</objectStoreV2>
 				    </cloudHubDeployment>
 				</configuration>
 			</plugin>
