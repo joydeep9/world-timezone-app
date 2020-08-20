@@ -31,6 +31,15 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				    <cloudHubDeployment>
+				      <uri>https://anypoint.mulesoft.com</uri>
+				      <muleVersion>4.3.0</muleVersion>
+				      <username>${anypoint.username}</username>
+				      <password>${anypoint.password}</password>
+				      <applicationName>worldtimezone-app-jdp</applicationName>
+				      <environment>${anypoint.environment}</environment>
+				    </cloudHubDeployment>
+				
 				</configuration>
 			</plugin>
 		</plugins>
