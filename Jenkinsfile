@@ -4,7 +4,7 @@ pipeline
 	stages{
 		stage('Build Application'){
 			steps{
-			 bat 'mvn clean install -Dmaven.test.skip=true'
+			 bat 'mvn clean install'
 			}
 		}
 		
