@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="world-timezone-app-test-suite.xml" />
+	<munit:test name="world-timezone-app-test-suite-world-timezone-appFlowTest" doc:id="5e1d5c3c-70d0-4482-b171-afa2ce1fbb5e" description="Test">
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="60daf8d3-4235-4558-833c-05ddaa293fb8" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="GET" attributeName="method" />
+					<munit-tools:with-attribute whereValue="WorldTimeZone API" attributeName="doc:name" />
+					<munit-tools:with-attribute whereValue="451837bf-c24e-434c-98ac-636b22ff4db5" attributeName="doc:id" />
+					<munit-tools:with-attribute whereValue="HTTP_Request_configuration" attributeName="config-ref" />
+					<munit-tools:with-attribute whereValue="/timezone/{region}/{location}" attributeName="path" />
+					<munit-tools:with-attribute whereValue="10000" attributeName="responseTimeout" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[{
+    "abbreviation": "IST",
+    "client_ip": "3.128.182.192",
+    "datetime": "2020-08-21T16:27:14.069134+05:30",
+    "day_of_week": 5,
+    "day_of_year": 234,
+    "dst": false,
+    "dst_from": null,
+    "dst_offset": 0,
+    "dst_until": null,
+    "raw_offset": 19800,
+    "timezone": "Asia/Kolkata",
+    "unixtime": 1598007434,
+    "utc_datetime": "2020-08-21T10:57:14.069134+00:00",
+    "utc_offset": "+05:30",
+    "week_number": 34
+}]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="05439f56-d5be-4ace-a315-afef22225f2e" >
+				<munit:attributes value="#[
+uriParams: {
+	region: 'Asia',
+	location: 'Kolkata'
+}
+]" />
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to world-timezone-appFlow" doc:id="305674b2-ef25-4fa1-8ce2-d5e5bfba71c7" name="world-timezone-appFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="03a8cc19-49d0-4a74-9c00-6692f3593272" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
