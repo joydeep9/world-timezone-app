@@ -34,6 +34,7 @@
 				    <cloudHubDeployment>
 				      <uri>https://anypoint.mulesoft.com</uri>
 				      <muleVersion>4.3.0</muleVersion>
+				      <munit.version>2.2.5</munit.version>
 				      <username>jdp</username>
 				      <password>Jnj@2jnj</password>
 				      <applicationName>worldtimezone-app-jdp</applicationName>
