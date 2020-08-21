@@ -7,11 +7,7 @@ pipeline
 			 bat 'mvn clean install -DskipTests=true'
 			}
 		}
-		stage('Test Application'){
-			steps{
-			 bat 'mvn test'
-			}
-		}		
+				
 		stage('Deploy Application to cloudhub'){
 			steps{
 			 bat 'mvn package deploy -DmuleDeploy'
