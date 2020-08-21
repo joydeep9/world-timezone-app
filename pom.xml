@@ -34,7 +34,6 @@
 				    <cloudHubDeployment>
 				      <uri>https://anypoint.mulesoft.com</uri>
 				      <muleVersion>4.3.0</muleVersion>
-				      <munit.version>2.2.5</munit.version>
 				      <username>jdp</username>
 				      <password>Jnj@2jnj</password>
 				      <applicationName>worldtimezone-app-jdp</applicationName>
@@ -90,7 +89,8 @@
             <version>2.2.5</version>
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
-        </dependency>	<dependency>
+        </dependency>	
+        <dependency>
             <groupId>com.mulesoft.munit</groupId>
             <artifactId>munit-tools</artifactId>
             <version>2.2.5</version>
